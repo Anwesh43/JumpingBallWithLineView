@@ -18,3 +18,4 @@ val sizeFactor : Float = 2.9f
 val delay : Long = 20
 val foreColor : Int = Color.parseColor("#9FA8DA")
 val backColor : Int = Color.parseColor("#BDBDBD")
+
