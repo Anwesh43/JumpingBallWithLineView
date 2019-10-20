@@ -16,14 +16,14 @@ val scGap : Float = 0.01f
 val strokeFactor : Float = 90f
 val sizeFactor : Float = 2.9f
 val delay : Long = 20
-val foreColor : Int = Color.parseColor("#9FA8DA")
+val foreColor : Int = Color.parseColor("#1A237E")
 val backColor : Int = Color.parseColor("#BDBDBD")
 
 fun Int.inverse() : Float = 1f / this
 fun Float.maxScale(i : Int, n : Int) : Float = Math.max(0f, this - i * n.inverse())
 fun Float.divideScale(i : Int, n : Int) : Float = Math.min(n.inverse(), maxScale(i, n)) * n
 fun Float.toDest(source : Float, dest : Float) : Float = source + (dest - source) * this
-fun Float.sinify() : Float = Math.sin(this * Math.PI / 180).toFloat()
+fun Float.sinify() : Float = Math.sin(this * Math.PI).toFloat()
 
 fun Canvas.drawBallWithLine(sc : Float, h : Float, size : Float, paint : Paint) {
     val sc1 : Float = sc.divideScale(0, 3)
@@ -31,7 +31,7 @@ fun Canvas.drawBallWithLine(sc : Float, h : Float, size : Float, paint : Paint) 
     val sc3 : Float = sc.divideScale(2, 3)
     val sf : Float = sc2.sinify()
     drawCircle(0f, sf.toDest(h - size, size), size, paint)
-    drawLine(0f, sf.toDest(h - 2 * size, 0f), 0f, (sc1 - sc3).toDest(h - 2 * size, 0f), paint)
+    drawLine(0f, sf.toDest(h - 1.9f * size, 0f), 0f, (sc1 - sc3).toDest(h - 1.9f * size, 0f), paint)
 }
 
 fun Canvas.drawJBLNode(i : Int, scale : Float, paint : Paint) {
