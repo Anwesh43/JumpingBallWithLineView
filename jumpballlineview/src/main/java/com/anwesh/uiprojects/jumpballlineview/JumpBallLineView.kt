@@ -201,4 +201,13 @@ class JumpBallLineView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+
+        fun create(activity : Activity) : JumpBallLineView {
+            val view : JumpBallLineView = JumpBallLineView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
